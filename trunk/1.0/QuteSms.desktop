@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Utility;TelephonyTools;SMS;
+Comment[en_US]=
+Comment=
+Exec=/home/invite/Desktop/bazar/Kdevelop/QuteSms/QuteSms/QuteSms
+GenericName[en_US]=Send sms through smshttp gateway
+GenericName=Send sms through smshttp gateway
+Icon=phone
+MimeType=
+Name[en_US]=QuteSms
+Name=QuteSms
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

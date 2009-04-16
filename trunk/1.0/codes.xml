@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://api.smshttp.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://api.smshttp.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://api.smshttp.com/">
+      <s:element name="GetMsgCreditCost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMsgCreditCostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMsgCreditCostResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SMSHttpResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditsLeft" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditsLeftToday" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Groups" type="tns:ArrayOfSMSHttpGroup" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contacts" type="tns:ArrayOfSMSHttpContact" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfSMSHttpMessages" />
+        </s:sequence>
+        <s:attribute name="Response" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfSMSHttpGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMSHttpGroup" type="tns:SMSHttpGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSHttpGroup">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSMSHttpContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMSHttpContact" type="tns:SMSHttpContact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSHttpContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSMSHttpMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMSHttpMessages" nillable="true" type="tns:SMSHttpMessages" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSHttpMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditCost" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateContactResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactTel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteContactResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeliveries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeliveriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeliveriesResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactsResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLogMessagesResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBalanceResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupSendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupSendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupSendSMSResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberRemove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberTel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberRemoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupMemberRemoveResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberTel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupMemberAddResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupGetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupGetAllResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberGetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMemberGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupMemberGetAllResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupDeleteResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupRename">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupRenameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupRenameResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupAddResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MsgID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteSMSResult" type="tns:SMSHttpResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSHttpResult" nillable="true" type="tns:SMSHttpResult" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMsgCreditCostSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMsgCreditCost" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgCreditCostSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMsgCreditCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateContact" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeliveries" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeliveriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLogMessages" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLogMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupSendSMS" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupSendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupMemberRemove" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupMemberRemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupMemberAdd" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupMemberAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupGetAll" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupMemberGetAll" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupMemberGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupDelete" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupRename" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupRenameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupAdd" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSMS" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgCreditCostHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Tel" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgCreditCostHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ContactTel" type="s:string" />
+    <wsdl:part name="ContactName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ContactTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Tel" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="MemberTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="MemberTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="GroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="MsgID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgCreditCostHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Tel" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgCreditCostHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ContactTel" type="s:string" />
+    <wsdl:part name="ContactName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ContactTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Tel" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLogMessagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupSendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="MemberTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberRemoveHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="MemberTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberAddHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupGetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupMemberGetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupDeleteHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupID" type="s:string" />
+    <wsdl:part name="GroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupRenameHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="GroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GroupAddHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+    <wsdl:part name="UserTel" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="MsgID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:SMSHttpResult" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetMsgCreditCost">
+      <wsdl:input message="tns:GetMsgCreditCostSoapIn" />
+      <wsdl:output message="tns:GetMsgCreditCostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:input message="tns:CreateContactSoapIn" />
+      <wsdl:output message="tns:CreateContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactSoapIn" />
+      <wsdl:output message="tns:DeleteContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <wsdl:input message="tns:GetDeliveriesSoapIn" />
+      <wsdl:output message="tns:GetDeliveriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:input message="tns:GetContactsSoapIn" />
+      <wsdl:output message="tns:GetContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <wsdl:input message="tns:GetLogMessagesSoapIn" />
+      <wsdl:output message="tns:GetLogMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="tns:GetBalanceSoapIn" />
+      <wsdl:output message="tns:GetBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <wsdl:input message="tns:GroupSendSMSSoapIn" />
+      <wsdl:output message="tns:GroupSendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <wsdl:input message="tns:GroupMemberRemoveSoapIn" />
+      <wsdl:output message="tns:GroupMemberRemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <wsdl:input message="tns:GroupMemberAddSoapIn" />
+      <wsdl:output message="tns:GroupMemberAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <wsdl:input message="tns:GroupGetAllSoapIn" />
+      <wsdl:output message="tns:GroupGetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <wsdl:input message="tns:GroupMemberGetAllSoapIn" />
+      <wsdl:output message="tns:GroupMemberGetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <wsdl:input message="tns:GroupDeleteSoapIn" />
+      <wsdl:output message="tns:GroupDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <wsdl:input message="tns:GroupRenameSoapIn" />
+      <wsdl:output message="tns:GroupRenameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <wsdl:input message="tns:GroupAddSoapIn" />
+      <wsdl:output message="tns:GroupAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <wsdl:input message="tns:DeleteSMSSoapIn" />
+      <wsdl:output message="tns:DeleteSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="GetMsgCreditCost">
+      <wsdl:input message="tns:GetMsgCreditCostHttpGetIn" />
+      <wsdl:output message="tns:GetMsgCreditCostHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:input message="tns:CreateContactHttpGetIn" />
+      <wsdl:output message="tns:CreateContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactHttpGetIn" />
+      <wsdl:output message="tns:DeleteContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <wsdl:input message="tns:GetDeliveriesHttpGetIn" />
+      <wsdl:output message="tns:GetDeliveriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:input message="tns:GetContactsHttpGetIn" />
+      <wsdl:output message="tns:GetContactsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <wsdl:input message="tns:GetLogMessagesHttpGetIn" />
+      <wsdl:output message="tns:GetLogMessagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="tns:GetBalanceHttpGetIn" />
+      <wsdl:output message="tns:GetBalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <wsdl:input message="tns:GroupSendSMSHttpGetIn" />
+      <wsdl:output message="tns:GroupSendSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <wsdl:input message="tns:GroupMemberRemoveHttpGetIn" />
+      <wsdl:output message="tns:GroupMemberRemoveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <wsdl:input message="tns:GroupMemberAddHttpGetIn" />
+      <wsdl:output message="tns:GroupMemberAddHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <wsdl:input message="tns:GroupGetAllHttpGetIn" />
+      <wsdl:output message="tns:GroupGetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <wsdl:input message="tns:GroupMemberGetAllHttpGetIn" />
+      <wsdl:output message="tns:GroupMemberGetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <wsdl:input message="tns:GroupDeleteHttpGetIn" />
+      <wsdl:output message="tns:GroupDeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <wsdl:input message="tns:GroupRenameHttpGetIn" />
+      <wsdl:output message="tns:GroupRenameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <wsdl:input message="tns:GroupAddHttpGetIn" />
+      <wsdl:output message="tns:GroupAddHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <wsdl:input message="tns:DeleteSMSHttpGetIn" />
+      <wsdl:output message="tns:DeleteSMSHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="GetMsgCreditCost">
+      <wsdl:input message="tns:GetMsgCreditCostHttpPostIn" />
+      <wsdl:output message="tns:GetMsgCreditCostHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:input message="tns:CreateContactHttpPostIn" />
+      <wsdl:output message="tns:CreateContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactHttpPostIn" />
+      <wsdl:output message="tns:DeleteContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <wsdl:input message="tns:GetDeliveriesHttpPostIn" />
+      <wsdl:output message="tns:GetDeliveriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:input message="tns:GetContactsHttpPostIn" />
+      <wsdl:output message="tns:GetContactsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <wsdl:input message="tns:GetLogMessagesHttpPostIn" />
+      <wsdl:output message="tns:GetLogMessagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="tns:GetBalanceHttpPostIn" />
+      <wsdl:output message="tns:GetBalanceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <wsdl:input message="tns:GroupSendSMSHttpPostIn" />
+      <wsdl:output message="tns:GroupSendSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <wsdl:input message="tns:GroupMemberRemoveHttpPostIn" />
+      <wsdl:output message="tns:GroupMemberRemoveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <wsdl:input message="tns:GroupMemberAddHttpPostIn" />
+      <wsdl:output message="tns:GroupMemberAddHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <wsdl:input message="tns:GroupGetAllHttpPostIn" />
+      <wsdl:output message="tns:GroupGetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <wsdl:input message="tns:GroupMemberGetAllHttpPostIn" />
+      <wsdl:output message="tns:GroupMemberGetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <wsdl:input message="tns:GroupDeleteHttpPostIn" />
+      <wsdl:output message="tns:GroupDeleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <wsdl:input message="tns:GroupRenameHttpPostIn" />
+      <wsdl:output message="tns:GroupRenameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <wsdl:input message="tns:GroupAddHttpPostIn" />
+      <wsdl:output message="tns:GroupAddHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <wsdl:input message="tns:DeleteSMSHttpPostIn" />
+      <wsdl:output message="tns:DeleteSMSHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMsgCreditCost">
+      <soap:operation soapAction="https://api.smshttp.com/GetMsgCreditCost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap:operation soapAction="https://api.smshttp.com/CreateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="https://api.smshttp.com/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <soap:operation soapAction="https://api.smshttp.com/GetDeliveries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="https://api.smshttp.com/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap:operation soapAction="https://api.smshttp.com/GetContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <soap:operation soapAction="https://api.smshttp.com/GetLogMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap:operation soapAction="https://api.smshttp.com/GetBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <soap:operation soapAction="https://api.smshttp.com/GroupSendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <soap:operation soapAction="https://api.smshttp.com/GroupMemberRemove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <soap:operation soapAction="https://api.smshttp.com/GroupMemberAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <soap:operation soapAction="https://api.smshttp.com/GroupGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <soap:operation soapAction="https://api.smshttp.com/GroupMemberGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <soap:operation soapAction="https://api.smshttp.com/GroupDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <soap:operation soapAction="https://api.smshttp.com/GroupRename" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <soap:operation soapAction="https://api.smshttp.com/GroupAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <soap:operation soapAction="https://api.smshttp.com/DeleteSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMsgCreditCost">
+      <soap12:operation soapAction="https://api.smshttp.com/GetMsgCreditCost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap12:operation soapAction="https://api.smshttp.com/CreateContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap12:operation soapAction="https://api.smshttp.com/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <soap12:operation soapAction="https://api.smshttp.com/GetDeliveries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="https://api.smshttp.com/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap12:operation soapAction="https://api.smshttp.com/GetContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <soap12:operation soapAction="https://api.smshttp.com/GetLogMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap12:operation soapAction="https://api.smshttp.com/GetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupSendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupMemberRemove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupMemberAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupMemberGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupRename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <soap12:operation soapAction="https://api.smshttp.com/GroupAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <soap12:operation soapAction="https://api.smshttp.com/DeleteSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetMsgCreditCost">
+      <http:operation location="/GetMsgCreditCost" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <http:operation location="/CreateContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <http:operation location="/DeleteContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <http:operation location="/GetDeliveries" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <http:operation location="/GetContacts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <http:operation location="/GetLogMessages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <http:operation location="/GetBalance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <http:operation location="/GroupSendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <http:operation location="/GroupMemberRemove" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <http:operation location="/GroupMemberAdd" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <http:operation location="/GroupGetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <http:operation location="/GroupMemberGetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <http:operation location="/GroupDelete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <http:operation location="/GroupRename" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <http:operation location="/GroupAdd" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <http:operation location="/DeleteSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetMsgCreditCost">
+      <http:operation location="/GetMsgCreditCost" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <http:operation location="/CreateContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <http:operation location="/DeleteContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveries">
+      <http:operation location="/GetDeliveries" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <http:operation location="/GetContacts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogMessages">
+      <http:operation location="/GetLogMessages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <http:operation location="/GetBalance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSendSMS">
+      <http:operation location="/GroupSendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberRemove">
+      <http:operation location="/GroupMemberRemove" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberAdd">
+      <http:operation location="/GroupMemberAdd" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupGetAll">
+      <http:operation location="/GroupGetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMemberGetAll">
+      <http:operation location="/GroupMemberGetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupDelete">
+      <http:operation location="/GroupDelete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupRename">
+      <http:operation location="/GroupRename" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupAdd">
+      <http:operation location="/GroupAdd" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSMS">
+      <http:operation location="/DeleteSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://smsc.vianett.no/smshttp/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://smsc.vianett.no/smshttp/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="https://smsc.vianett.no/smshttp/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="https://smsc.vianett.no/smshttp/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
