@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icons" >
+        <file>help-about.png</file>
+        <file>dialog-cancel.png</file>
+        <file>edit-clear.png</file>
+        <file>mail-mark-unread.png</file>
+        <file>dialog-ok-apply.png</file>
+        <file>phone.png</file>
+        <file>aboutText.txt</file>
+    </qresource>
+</RCC>
