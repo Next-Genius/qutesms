@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>messageWindow</class>
+ <widget class="QDialog" name="messageWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>499</width>
+    <height>447</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manage message log</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources/resources.qrc">
+    <normaloff>:/icons/favicon.ico</normaloff>:/icons/favicon.ico</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Number of messages to display:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" colspan="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="QCheckBox" name="cb_autoDelete">
+     <property name="text">
+      <string>Automatically delete messages from log once sent</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="pb_earlyFirst">
+     <property name="maximumSize">
+      <size>
+       <width>25</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>Earliest message first</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources/resources.qrc">
+       <normaloff>:/icons/go-down.png</normaloff>:/icons/go-down.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QPushButton" name="pb_oldFirst">
+     <property name="maximumSize">
+      <size>
+       <width>25</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>Oldest message first</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources/resources.qrc">
+       <normaloff>:/icons/go-up.png</normaloff>:/icons/go-up.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="7">
+    <widget class="QListWidget" name="lw_messages">
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2" colspan="5">
+    <widget class="QPushButton" name="pb_done">
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>&amp;Done</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources/resources.qrc">
+       <normaloff>:/icons/dialog-ok.png</normaloff>:/icons/dialog-ok.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="cb_display">
+     <property name="minimumSize">
+      <size>
+       <width>60</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>60</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>20</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>50</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>cb_display</tabstop>
+  <tabstop>pb_earlyFirst</tabstop>
+  <tabstop>pb_oldFirst</tabstop>
+  <tabstop>lw_messages</tabstop>
+  <tabstop>cb_autoDelete</tabstop>
+  <tabstop>pb_done</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

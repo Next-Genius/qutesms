@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>contactWindow</class>
+ <widget class="QDialog" name="contactWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manage contacts and groups</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0" rowspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Contacts</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pb_contactAdd">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Add</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/list-add.png</normaloff>:/icons/list-add.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="pb_contactRemove">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Remove</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/list-remove.png</normaloff>:/icons/list-remove.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QListWidget" name="lw_contacts">
+       <property name="minimumSize">
+        <size>
+         <width>235</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="3" rowspan="2">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="0" colspan="3">
+      <widget class="QComboBox" name="cb_groups"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pb_groupAdd">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Add</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/list-add.png</normaloff>:/icons/list-add.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="pb_groupRemove">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Remove</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/list-remove.png</normaloff>:/icons/list-remove.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="3">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Group members</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="3">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Groups</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="3">
+      <widget class="QListWidget" name="lw_members"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="pb_groupRename">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Rename</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/view-pim-contacts.png</normaloff>:/icons/view-pim-contacts.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="pb_done">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>&amp;Done</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources/resources.qrc">
+       <normaloff>:/icons/dialog-ok.png</normaloff>:/icons/dialog-ok.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="2" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>90</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pb_memberAdd">
+       <property name="minimumSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Add contact to group</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/arrow-right.png</normaloff>:/icons/arrow-right.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pb_memberRemove">
+       <property name="minimumSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Remove from group</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources/resources.qrc">
+         <normaloff>:/icons/arrow-left.png</normaloff>:/icons/arrow-left.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>lw_contacts</tabstop>
+  <tabstop>pb_contactAdd</tabstop>
+  <tabstop>pb_contactRemove</tabstop>
+  <tabstop>pb_memberAdd</tabstop>
+  <tabstop>pb_memberRemove</tabstop>
+  <tabstop>cb_groups</tabstop>
+  <tabstop>pb_groupAdd</tabstop>
+  <tabstop>pb_groupRemove</tabstop>
+  <tabstop>pb_groupRename</tabstop>
+  <tabstop>lw_members</tabstop>
+  <tabstop>pb_done</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources/resources.qrc"/>
+  <include location="resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
