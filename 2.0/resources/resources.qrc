@@ -1,0 +1,24 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file>icon32.ico</file>
+    <file>internet-web-browser.png</file>
+    <file>help-about.png</file>
+    <file>dialog-ok-apply.png</file>
+    <file>dialog-close.png</file>
+    <file>dialog-cancel.png</file>
+    <file>edit-clear.png</file>
+    <file>mail-mark-unread.png</file>
+    <file>phone.png</file>
+    <file>arrow-right.png</file>
+    <file>arrow-left.png</file>
+    <file>list-add.png</file>
+    <file>list-remove.png</file>
+    <file>list-add-user.png</file>
+    <file>view-pim-contacts.png</file>
+    <file>dialog-ok.png</file>
+    <file>list-remove-big.png</file>
+    <file>mail-queue.png</file>
+    <file>go-up.png</file>
+    <file>go-down.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,11 @@
+Version 2.1
+===========
+
+* Removed .ogg files
+* Removed aboutText.txt
+* Removed favicon.ico
+* New icon taken from www.vianett.no (bigger size)
+* Updated resources.qrc
+* Fixed bug in messages.cpp: reload list after a message has been deleted
+* Removed codes.xml
+
