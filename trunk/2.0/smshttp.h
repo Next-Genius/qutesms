@@ -21,7 +21,7 @@
 
 #define WEBSERVICE_FILE	"webservice"
 
-const QString appId="915568405"; //795846979
+const QString appId="795846979";
 
 class Contacts;
 class Messages;
